@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="/static/css/amazeui.css"/>
+<link rel="stylesheet" href="/static/css/admin.css">
+<script src="/dist/js/app.js"></script>
+<style type="text/css">
+    ul{
+        margin: 0 0 0 0;
+    }
+    .admin-index dl {
+        width: 18%;
+    }
+</style>
+<div class="am-cf admin-main">
+    <div class=" admin-content">
+        <div style="overflow-x: hidden">
+            <div class="admin-index">
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 100}">
+                    <dt style="background-color: #42cac0"><img style="height: 90px;width: 120px" src="/static/Img/zhubo.png"></dt>
+                    <dd style="color: #333">{$anchor_count}</dd>
+                    <dd class="f12" style="color: #333">主播数量</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 600}">
+                    <dt style="background-color: #f8d347"><img style="height: 90px;width: 120px" src="/static/Img/shouyi.png"></dt>
+                    <dd style="font-size: 25px;color: #333">{$anchor_earnings}</dd>
+                    <dd class="f12" style="color: #333">主播收益(钻石)</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 300}">
+                    <dt style="background-color: #ff6c60"><img style="height: 90px;width: 120px" src="/static/Img/shangjia.png"></dt>
+                    <dd style="color: #333">{$merchants_count}</dd>
+                    <dd class="f12" style="color: #333">商户数量</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
+                    <dt style="background-color: #f8d347"><img style="height: 90px;width: 120px" src="/static/Img/shouyi.png"></dt>
+                    <dd style="font-size: 25px;color: #333">{$merchants_earninag}</dd>
+                    <dd class="f12" style="color: #333">商户直播收益(钻石)</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
+                    <dt style="background-color: #57c8f2"><img style="height: 90px;width: 120px" src="/static/Img/shouyi.png"></dt>
+                    <dd style="font-size: 25px;color: #333">{$merchants_sale}</dd>
+                    <dd class="f12" style="color: #333">商户销售交易额(元)</dd>
+                </dl>
+            </div>
+            <div class="admin-biaoge">
+                <div class="xinxitj" style=""><h3>主播直播信息</h3></div>
+                <table class="am-table">
+                    <thead>
+                    <tr>
+                        <th>主播昵称</th>
+                        <th>主播账号</th>
+                        <th>账户余额(单位:钻石)</th>
+                        <th>收益额(单位:钻石)</th>
+                        <th>可提现金额（单位:元)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="anchor_info" id="vo"}
+                    <tr>
+                        <td>{$vo.username}</td>
+                        <td>{$vo.phone}</td>
+                        <td>{$vo.e_ticket}</td>
+                        <td>{$vo.get_gift_count}</td>
+                        <td>{$vo.case_money}</td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <div class="xinxitj" style=""><h3>商户直播信息</h3></div>
+                <table class="am-table">
+                    <thead>
+                    <tr>
+                        <th>店铺名称</th>
+                        <th>商户账号</th>
+                        <th>账户余额(单位:钻石)</th>
+                        <th>收益额(单位:钻石)</th>
+                        <th>可提现金额（单位:元)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="merchants_info" id="vo"}
+                    <tr>
+                        <td>{$vo.merchants_name}</td>
+                        <td>{$vo.phone}</td>
+                        <td>{$vo.e_ticket}</td>
+                        <td>{$vo.get_gift_count}</td>
+                        <td>{$vo.case_money}</td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+                <div class="xinxitj" style=""><h3>商户销售信息</h3></div>
+                <table class="am-table">
+                    <thead>
+                    <tr>
+                        <th>店铺名称</th>
+                        <th>商户账号</th>
+                        <th>订单总价(单位:钻石)</th>
+                        <th>商户收益额（单位:元)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name="merchants_info" id="vo"}
+                    <tr>
+                        <td>{$vo.merchants_name}</td>
+                        <td>{$vo.phone}</td>
+                        <td>{$vo.order_price}</td>
+                        <td>{$vo.merchants_settlement_price}</td>
+                    </tr>
+                   {/volist}
+                    </tbody>
+                </table>
+            </div>
+            <div class="shuju">
+                <div class="hd" style="margin-bottom: 10px;"><h3>电视台直播收益</h3></div>
+                <div class="shujuone">
+                    <dl>
+                        <dt>钻石总收益:&nbsp;{$tv_info.e_ticket_count}钻石</dt>
+                        <dt>钻石余额:&nbsp; {$tv_info.e_ticket}钻石</dt>
+                        <dt>预估可提现金额:&nbsp;{$tv_info.cash_money}元</dt>
+                    </dl>
+                    <ul>
+                        <h2>￥0元</h2>
+                        <li>已提现金额</li>
+                    </ul>
+                </div>
+                <div class="hd" style="margin-top: 10px"><h3>电视台销售收益</h3></div>
+                <div class="shujutow">
+                    <dl>
+                        <dt>销售总额：  {$merchants_sale}</dt>
+                        <dt>收益额：   {$tv_info.settlement_count_price}元</dt>
+                        <dt>可提现金额: {$tv_info.settlement_count_price}元</dt>
+                    </dl>
+                    <ul>
+                        <h2>0元</h2>
+                        <li>已提现金额</li>
+                    </ul>
+                </div>
+                <script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+            </div>
+        </div>
+    </div>
+</div>

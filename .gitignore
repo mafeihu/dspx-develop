@@ -1,0 +1,9 @@
+
+runtime/*
+!/runtime/.keep
+.idea
+composer.lock
+*.log
+.DS_Store
+/public/uploads/*
+/application/config.php

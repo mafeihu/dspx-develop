@@ -1,0 +1,23 @@
+<div class="wrapper">
+	<!--header-->
+	<div class="p_f t0 l0 w_b100 back_fff z100">
+		<div class="box_center h44 pl10 pr10 bor_b">
+			<div class="grid_cell box_start">
+				<div class="left_icon w22 h28" ng-click="backFun()"></div>
+			</div>
+			<div class="f16 grid_cell box_center">我的优惠券</div>
+			<div class="grid_cell box_end">
+				<div class=""></div>
+			</div>
+		</div>
+		<!-- tab -->
+		<div class="box_between back_fff h45 f14 col_999 bor_b">
+			<div class="box_center grid_cell pl5 pr5 ml10 mr10 h45" ng-class="{nav_act:type==1,col_red:type==1}" ng-click="couponTabClick(1)">未使用</div>
+			<div class="box_center grid_cell pl5 pr5 ml10 mr10 h45" ng-class="{nav_act:type==2,col_red:type==2}" ng-click="couponTabClick(2)">已使用</div>
+			<div class="box_center grid_cell pl5 pr5 ml10 mr10 h45" ng-class="{nav_act:type==3,col_red:type==3}" ng-click="couponTabClick(3)">已过期</div>
+		</div>
+	</div>
+	<div class="pt45">
+		<div class="p10"></div>
+	</div>
+</div>
